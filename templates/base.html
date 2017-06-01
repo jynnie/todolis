@@ -1,0 +1,32 @@
+<!--This is the basic template/framework that all html pages will have-->
+
+<html>
+  <head>
+    <!-- header includes "meta data", which are things that don't show up on the actual site, but define useful information for the web, such as the title of the website and other tags that are used by search engines-->
+    <title>Todo</title>
+
+    <!-- bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- things in the body actually show up on the website -->
+
+    <!-- setting up a navigation bar-->
+    <div>
+      Todolis:
+      <a href="/index">Home</a>
+      <a href="/signup">Sign Up</a>
+      <hr>
+    </div>
+
+    <!--injected content goes here-->
+    {% block content %}{% endblock %}
+
+    <!-- optional footer to kind of show how content goes in between-->
+    <footer>
+      <div style="position:absolute; bottom:10;"> <!--style can be placed in tags; and stick to bottom-->
+        <a href="">Open Source</a>. Tutorial made by Jynnie for HUST Camp 2017. Copyright 2017.
+      </div>
+    </footer>
+  </body>
+</html>
