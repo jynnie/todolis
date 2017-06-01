@@ -1,4 +1,4 @@
-#Making a Multi-User Todo List with Flask
+# Making a Multi-User Todo List with Flask
 
 Show them what we're going to make;
 explain basic structure of how web apps work
@@ -61,3 +61,11 @@ lets setup our first html page
 16. create database by running tabledef.py
 17. test sign up
 18. add flash prompts
+
+*possible improvements to sign up: better flash prompts; no double users; limit character count for username*
+
+---
+
+19. add todos table and link to user table
+	- gotta explain backref, and foreign keys
+	- a one to many relationship
