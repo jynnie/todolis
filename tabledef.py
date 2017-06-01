@@ -15,7 +15,7 @@ class User(Base): #User() will be used to interact with this database
     username    = Column(String)
     email       = Column(String)
     password    = Column(String)
-    todos       = relationship('todos', backref='user') #linked to values in todos
+    todos       = relationship('Todo', backref='users') #linked to values in todos; the first argument has to be the class
 
     def __init__(self, username, email, password): #defines what happens when User(x, y) is used
         self.username = username
@@ -27,7 +27,7 @@ class Todo(Base):
 
     #setting up columns for the tables
     id          = Column(Integer, primary_key=True)
-    user_id     = Column(Integer, ForeignKey('user.id')) #links to user
+    user_id     = Column(Integer, ForeignKey('users.id')) #links to user
     content     = Column(String)
 
     #unclear how to setup init

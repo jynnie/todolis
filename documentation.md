@@ -66,6 +66,16 @@ lets setup our first html page
 
 ---
 
+19. setup login route
+20. templates > login.html
+	- also add a link on the base navbar
+21. add functionality
+	- explain session variables
+	- make sure you have the right methods in place
+22. test and show
+23. if logged in show different content
+	- edit sign up, log in, and index pages
+
 19. add todos table and link to user table
 	- gotta explain backref, and foreign keys
 	- a one to many relationship
