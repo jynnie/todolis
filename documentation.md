@@ -36,7 +36,7 @@ lets setup our first html page
 	  more to come in the future, this is just a taste
 	  let's finish giving the app functionality
 
-(^ the above took approx. 15 minutes)
+---
 
 10. start setting up signup routes
 	- need to add get and post methods (must explain)
@@ -74,7 +74,13 @@ lets setup our first html page
 	- make sure you have the right methods in place
 22. test and show
 23. if logged in show different content
-	- edit sign up, log in, and index pages
+	- edit sign up, log in, base, and index pages
+24. setup logout route
+	- add to navbar
+
+---
+
+25. 
 
 19. add todos table and link to user table
 	- gotta explain backref, and foreign keys

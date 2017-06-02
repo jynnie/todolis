@@ -24,14 +24,36 @@ class UserForm(Form): #general form class for logins and registration
 
 
 
-@app.route("/")
-@app.route("/index")
+@app.route("/", methods=['GET', 'POST'])
+@app.route("/index", methods=['GET', 'POST'])
 def index(): #tells what flask should return/do when user accesses above routes
-    return render_template("index.html")
+    todolis = [] #list of todos
+
+    if session.get('logged_in'):
+        Session = sessionmaker(bind=engine)
+        s = Session() #start a new session
+
+        current_user = s.query(User).get(session['user_id']) #queries for the current user based on saved user_id
+
+        if request.method == 'POST': #if adding a new todo
+            new_todo = request.form['todo'] #get data from form
+
+            if new_todo != None: #if not empty todo
+                todo = Todo(content=new_todo, user=current_user) #create new row of todo
+                s.add(todo)
+                s.commit()
+
+        users_todos = current_user.todos.all() #gets all the todos of that user
+
+        for todo in users_todos: #cleaning up the todos for display
+            todolis.append([todo.id, todo.content])
+
+    return render_template("index.html",
+                            list=todolis)
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
-    form = UserForm(request.form) #gets the data from the form submitted by the user
+    form = UserForm(request.form) #gets the data from the form submitted by the user and checks validation
     print form.errors
 
     if request.method == 'POST':
@@ -73,6 +95,7 @@ def login():
 
         if result:
             session['logged_in'] = True
+            session['user_id'] = result.id
             session['username'] = username
             flash('Welcome back, ' + username + '!')
         else:
@@ -80,6 +103,16 @@ def login():
 
     return render_template("login.html",
                             form=form)
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    session['user_id'] = 0
+    session['username'] = 'Guest'
+    #del todolis[:] #clears the todo list
+    return redirect ('/index') #once session variables have been reset; go back to home page
+
+
 
 app.secret_key = os.urandom(12) #essential to creating a session
 app.run(debug=True) #tells python to run the application with debugging on

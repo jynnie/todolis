@@ -2,6 +2,27 @@
 
 {% block content %}
 
-  <p>Hello, boss!</p>
+<h1> Todolis </h1>
 
+{% if session['logged_in'] %}
+
+  <p>Hello, {{session['username']}}!</p>
+
+  <ul>
+    {% for todo in list %}
+      <li> {{ todo[1] }} </li>
+    {% endfor %}
+  </ul>
+
+  <form action="" method="post" role="form">
+    <input type="text" name="todo" placeholder="New todo"> <br>
+    <input type="submit" value="add">
+  </form>
+
+{% else %}
+
+  <p> Welcome to Todolis, a web app for your todos. <br>
+    If you're new, go sign up to begin. If you're a returning user, login to continue. </p>
+
+{% endif %}
 {% endblock %}

@@ -2,6 +2,15 @@
 
 {% block content %}
 <h1> Log In </h1>
+
+{% if session['logged_in'] %}
+
+
+<p> Welcome back, {{session['username']}}! You're logged in!</p>
+
+{% else %}
+
+
 <p> Existing user? Log in below. If you're a new user, go <a href="/signup">sign up</a> today.</p>
 
 <form action="" method="post" role="form">
@@ -22,4 +31,5 @@
   {% endif %}
 {% endwith %}
 
+{% endif %}
 {% endblock %}

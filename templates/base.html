@@ -3,7 +3,7 @@
 <html>
   <head>
     <!-- header includes "meta data", which are things that don't show up on the actual site, but define useful information for the web, such as the title of the website and other tags that are used by search engines-->
-    <title>Todo</title>
+    <title>Todolis</title>
 
     <!-- bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -15,8 +15,12 @@
     <div>
       Todolis:
       <a href="/index">Home</a>
+      {% if session['logged_in'] %}
+      <a href="/logout">Logout</a>
+      {% else %}
       <a href="/signup">Sign Up</a>
       <a href="/login">Log In</a>
+      {% endif %}
       <hr>
     </div>
 
