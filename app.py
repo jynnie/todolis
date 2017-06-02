@@ -112,6 +112,18 @@ def logout():
     #del todolis[:] #clears the todo list
     return redirect ('/index') #once session variables have been reset; go back to home page
 
+@app.route("/delete")
+def delete():
+    Session = sessionmaker(bind=engine)
+    s = Session() #start a new session
+
+    todo_id = int(request.args.get('id')) #get the id of the todo to delete
+    todo = s.query(Todo).get(todo_id) #get the todo with that id
+    s.delete(todo) #delete it
+    s.commit()
+
+    return redirect("/") #redirect back to home page
+
 
 
 app.secret_key = os.urandom(12) #essential to creating a session

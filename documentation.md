@@ -80,8 +80,15 @@ lets setup our first html page
 
 ---
 
-25. 
-
-19. add todos table and link to user table
+25. add todos table and link to user table
 	- gotta explain backref, and foreign keys
 	- a one to many relationship
+26. choose what happens on index when logged in
+	 - add functionality for showing todos
+27. add to html ability to see todos queried
+28. add form to html to add new todo
+29. add functionality to actually add new todos
+30. add [x] query to the html side
+31. create /delete route + functionality
+
+

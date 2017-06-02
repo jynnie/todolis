@@ -10,7 +10,10 @@
 
   <ul>
     {% for todo in list %}
-      <li> {{ todo[1] }} </li>
+      <li>
+        {{ todo[1] }}
+        [<a href={{'/delete?id=' + todo[0]|string}}>X</a>]
+      </li>
     {% endfor %}
   </ul>
 
