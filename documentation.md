@@ -91,4 +91,6 @@ lets setup our first html page
 30. add [x] query to the html side
 31. create /delete route + functionality
 
+*possible improvements: can add security so you can't delete todos that aren't owned by you*
+
 

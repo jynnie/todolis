@@ -12,26 +12,32 @@
     <!-- things in the body actually show up on the website -->
 
     <!-- setting up a navigation bar-->
-    <div>
-      Todolis:
-      <a href="/">Home</a>
-      {% if session['logged_in'] %}
-      <a href="/logout">Logout</a>
-      {% else %}
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Log In</a>
-      {% endif %}
-      <hr>
+    <div class="navbar" style="background-color: #F1F1F1">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Todolis</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            {% if session['logged_in'] %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/login">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!--injected content goes here-->
-    {% block content %}{% endblock %}
+    <div class="container">
+      <!--injected content goes here-->
+      {% block content %}{% endblock %}
+    </div>
 
     <!-- optional footer to kind of show how content goes in between-->
-    <footer>
-      <div style="position:absolute; bottom:10;"> <!--style can be placed in tags; and stick to bottom-->
+    <footer class="container-fluid" style="position:absolute; bottom:10;"> <!--style can be placed in tags; and stick to bottom-->
         <a href="">Open Source</a>. Tutorial made by Jynnie for HUST Camp 2017. Copyright 2017.
-      </div>
     </footer>
   </body>
 </html>
